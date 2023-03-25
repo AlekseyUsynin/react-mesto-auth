@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import api from "../utils/api";
 
-function Main(props) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
@@ -25,7 +25,7 @@ function Main(props) {
           <div
             className="profile__edit-avatar"
             onClick={() => {
-              props.onEditAvatar(true);
+              onEditAvatar(true);
             }}
           >
             <img
@@ -42,7 +42,7 @@ function Main(props) {
               className="profile__edit-button"
               type="button"
               onClick={() => {
-                props.onEditProfile(true);
+                onEditProfile(true);
               }}
             ></button>
             <p className="profile__subtitle">{currentUser.about}</p>
@@ -52,7 +52,7 @@ function Main(props) {
           className="profile__add-button"
           type="button"
           onClick={() => {
-            props.onAddPlace(true);
+            onAddPlace(true);
           }}
         ></button>
       </section>
@@ -67,7 +67,7 @@ function Main(props) {
             link={card.link}
             likes={card.likes}
             onCardClick={() => {
-              props.onCardClick(card);
+              onCardClick(card);
             }}
           />
         ))}
