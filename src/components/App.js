@@ -70,8 +70,6 @@ function App() {
           type="text"
           placeholder="О себе"
           name="infoSelector"
-          // minlength="2"
-          // maxlength="200"
           required
         />
         <span className="info-error popup__input-error"></span>
@@ -90,8 +88,6 @@ function App() {
           type="text"
           placeholder="Название"
           name="name"
-          // minlength="2"
-          // maxlength="30"
           required
         />
         <span className="name-error popup__input-error"></span>
