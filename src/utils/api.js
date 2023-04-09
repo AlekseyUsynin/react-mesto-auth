@@ -23,7 +23,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ avatar: body }),
+      body: JSON.stringify({ avatar: body.avatar }),
     }).then(this._checkResponse);
   }
 
@@ -31,10 +31,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        name: data["titleSelector"],
-        about: data["infoSelector"],
-      }),
+      body: JSON.stringify(data),
     }).then(this._checkResponse);
   }
 
@@ -62,16 +59,9 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addLike(id) {
+  addLike(id, isLiked) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  deleteLike(id) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "DELETE",
+      method: `${isLiked ? "PUT" : "DELETE"}`,
       headers: this._headers,
     }).then(this._checkResponse);
   }
