@@ -53,6 +53,25 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  // проверка токена
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      console.log(jwt);
+      auth
+        .checkToken(jwt)
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            setIsLoggedIn(true);
+            setIsEmail(res.data.email);
+            navigate("/");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [navigate]);
+
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
