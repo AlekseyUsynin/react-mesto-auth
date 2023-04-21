@@ -1,12 +1,25 @@
 .header {
-  max-width: 882px;
-  margin: 0 auto;
-  padding: 45px 0 41px;
   border-bottom: 1px solid #545454;
+  display: flex;
+  justify-content: space-between;
+  max-width: 880px;
+  padding-bottom: 43px;
+  margin: auto;
+  padding-top: 45px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1040px) {
   .header {
-    padding: 28px 19px 32px;
+    height: 56px;
+    padding-top: 28px;
   }
+}
+
+.header__menu-items {
+  display: none;
+}
+
+.header__burger.active + .header__menu-items {
+  display: flex;
+  flex-direction: column;
 }
