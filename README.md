@@ -36,7 +36,7 @@
 ### React
 
 - Сборка проекта на react
-- Авторизация через сервис https://auth.nomoreparties.co
+- Авторизация
 
 ---
 
